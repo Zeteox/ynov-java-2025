@@ -1,5 +1,6 @@
 package fr.ynov.java.medium;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 enum Nationality {
@@ -9,15 +10,16 @@ enum Nationality {
 }
 public class Person {
     String name;
-    int age;
+    LocalDate birthDate;
     String gender;
     float height;
     float weight;
     Nationality nationality;
 
-    public Person(String name, int age, String gender, float height, float weight, Nationality nationality) {
+    public Person(String name, String birthDate, String gender, float height, float weight, Nationality nationality) {
         this.name = name;
-        this.age = age;
+        // birth date format : YYYY-MM-JJ
+        this.birthDate = LocalDate.parse(birthDate);
         this.gender = gender;
         this.height = height;
         this.weight = weight;
@@ -26,15 +28,20 @@ public class Person {
 
     public void showAttributes() {
         System.out.println(this.name);
-        System.out.println(this.age);
+        System.out.println(this.birthDate);
         System.out.println(this.gender);
         System.out.println(this.height);
         System.out.println(this.weight);
         System.out.println(this.nationality);
     }
 
+    public int getAge() {
+        return LocalDate.now().getYear() - this.birthDate.getYear();
+    }
+
     public static void main(String[] args) {
-        Person oui = new Person("lolo",18,"trans",1.79f,68.9f,Nationality.FRENCH);
+        Person oui = new Person("lolo","2024-06-14","trans",1.79f,68.9f,Nationality.FRENCH);
         oui.showAttributes();
+        System.out.println(oui.getAge());
     }
 }
