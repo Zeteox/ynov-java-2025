@@ -6,6 +6,8 @@ public class Arrays {
         for (int i = 0; i < a.length; i++) {
             a[i] = i;
         }
-        System.out.println(java.util.Arrays.toString(a));
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+        }
     }
 }
