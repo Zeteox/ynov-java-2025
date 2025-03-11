@@ -2,8 +2,6 @@ package fr.ynov.java.medium;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.DirectoryIteratorException;
-import java.util.List;
 import java.util.Scanner;
 
 public class ReadFile {
